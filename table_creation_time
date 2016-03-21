@@ -1,0 +1,8 @@
+# table cretion time for user
+
+SET linesize 2000 pagesize 2000
+col owner FOR a10
+col object_name FOR a40
+col object_type FOR a20
+SELECT a.owner, a.created, a.object_name, a.object_type, b.TABLESPACE_NAME FROM dba_objects a, dba_tables b 
+WHERE  a.owner = 'NAME' AND a.object_type = 'TABLE' and a.object_name=b.TABLE_NAME and b.tablespace_name='XXXXX' order by created asc;
