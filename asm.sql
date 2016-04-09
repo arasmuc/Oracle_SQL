@@ -1,0 +1,17 @@
+-- %D%
+-- %D%  example: @check_asm_disk
+-- %D%
+-- %D%  New Columns in Oracle 12c in the view/tables used in this script.
+-- %D%
+-- %D%  OWNER                TABLE_NAME                     COLUMN_NAME                    COMMENTS
+-- %D%  -------------------- ------------------------------ ------------------------------ --------------------------------------------
+-- %D%  SYS                  V_$ASM_DISKGROUP               CON_ID
+-- %D%  SYS                  V_$ASM_DISK                    CON_ID
+-- %D%
+-- %C%
+-- %C%  YYYYMMDD  who  description - latest on top !!!
+-- %C%  --------------------------------------------------------------------------------------------------------------------------------
+-- %C%  20140801  SAJ  12c_Ready, formatted script output and header.
+-- %C%
+----------------------------------------------------------------------------------------------------------------------------------------
+select a.name,a.group_number,b.name,b.path from v$asm_diskgroup a, v$asm_disk b where a.group_number=b.group_number;
