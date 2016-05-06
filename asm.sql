@@ -1,5 +1,5 @@
 -- %D%
--- %D%  example: @check_asm_disk
+-- %D%  example: @asm.sql
 -- %D%
 -- %D%  New Columns in Oracle 12c in the view/tables used in this script.
 -- %D%
