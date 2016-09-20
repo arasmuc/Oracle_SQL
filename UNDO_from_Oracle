@@ -1,0 +1,11 @@
+select max(maxquerylen),max(tuned_undoretention) from v$undostat; 
+  
+select max(maxquerylen),max(tuned_undoretention) from dba_hist_undostat;
+
+select tablespace_name, retention from dba_tablespaces where contents = 'UNDO';
+
+SELECT DISTINCT STATUS, SUM(BYTES), COUNT(*) FROM DBA_UNDO_EXTENTS GROUP BY STATUS;
+
+select autoextensible from dba_data_files where tablespace_name='UNDOTBS2';
+
+select sum(bytes) from dba_free_space where tablespace_name='UNDOTBS2';
