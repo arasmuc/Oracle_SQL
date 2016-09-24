@@ -1,15 +1,15 @@
-select sum(bytes)/1024/1024/1024 as size_in_gig, segment_type from dba_segments where owner='OWNAUIPRD_AIR_2WF' group by segment_type;
+select sum(bytes)/1024/1024/1024 as size_in_gig, segment_type from dba_segments where owner='XXXXXX' group by segment_type;
 
 select username from dba_users minus select distinct owner from dba_objects ;
 
 
 #PARTITIONED = 'NO
-select index_name, PARTITIONED from dba_indexes where owner=upper('ownauiprd_air_2WF');
-select 'alter index '||owner||'.'||index_name ||' rebuild online compute statistics;' from dba_indexes where owner=upper('ownauiprd_air_2WF') and PARTITIONED='NO';
+select index_name, PARTITIONED from dba_indexes where owner=upper('xxxxxxxxxx');
+select 'alter index '||owner||'.'||index_name ||' rebuild online compute statistics;' from dba_indexes where owner=upper('xxxxxx') and PARTITIONED='NO';
 
 
 #PARTITIONED
-select index_name from dba_ind_partitions where INDEX_OWNER=upper('ownauiprd_air_2WF') and INDEX_NAME not like '%SYS%';
+select index_name from dba_ind_partitions where INDEX_OWNER=upper('xxxxxx') and INDEX_NAME not like '%SYS%';
 select 'alter index '||INDEX_OWNER||'.'||index_name ||' rebuild partition '||partition_name||' online compute statistics' from dba_ind_partitions where INDEX_OWNER=upper('ownauiprd_air_2WF') and INDEX_NAME not like '%SYS%';
 
 
